@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+        <script src="jquery.flip.min.js"></script>
+        <script src="myScript3.js"></script>
+        <meta charset="utf-8">
+        
+        <script>
+            function alterar(txt,cx,inp){
+                if(document.getElementById(txt).innerHTML == '?'){
+                    document.getElementById(txt).style.display = "none";
+                    document.getElementById(cx).style.display = "inline";
+                    var texto = document.getElementById(txt).innerHTML;
+                    document.getElementById(inp).value = texto;
+                }    
+            }
+
+            function atualizar(txt,cx,inp){
+                document.getElementById(txt).style.display = "inline";
+                document.getElementById(cx).style.display = "none";
+                var texto = document.getElementById(inp).value;
+                if(texto == ""){
+                    texto = "Insira novo texto";
+                }
+                document.getElementById(txt).innerHTML = texto;
+            }
+        </script>
+        
+        <script>
+			$(function(){
+				$(".flip").flip({
+					trigger: 'manual'
+				});
+				$("#btn").click(function(){
+					//if(acertou == 5){
+                        $(".flip").flip(true);
+                        setTimeout(function(){
+                            $(".flip").flip(false);
+                        },500);
+                   // }
+					
+				});
+			});
+		</script>
+    
+        <style>
+            .flip{
+                width: 250px;
+                height: 350px;
+                margin-left: 33%;
+            }
+            
+            .front{
+                width: 250px;
+                height: 350px;
+                background-color: blue;
+                margin-left: 40%;
+                border-radius: 15px;
+            }
+            .back{
+                margin-left: 40%;
+                width: 250px;
+                height: 350px;
+            }
+            #imgback{
+                border-radius: 15px;
+            }
+            
+            #numAtomico{
+                margin-bottom: 50px;
+            }
+            
+            span#cxnum{
+                display: none;
+            }
+            h2#numAtomico{
+                display: block;
+            }
+            span#txtnum{
+                color: white;
+                font-size:15px;
+                padding-top: 10px;
+                padding-left: 10px;
+            }
+            #inpnum{
+                width: 25px;
+                margin-left: 10px;
+            }
+            
+            #simbolo{
+                color: white;
+                text-align: center;
+                font-size: 50px;
+                margin-top: -15px;
+            }
+            span#txtSimbolo{
+                color: white;
+                font-size: 50px;
+            }
+            span#cxSimbolo{
+                display: none;
+            }
+            #inSimbolo{
+                width: 70px;
+                height: 50px;
+                font-size: 50px;
+                text-align: center;
+            }
+            
+            #nome{
+                color: white;
+                text-align: center;
+                margin-top: 20px;*/
+            }
+            span#txtNome{
+                color: white;
+                font-size: 40px;
+            }
+            span#cxNome{
+                display: none;
+            }
+            #inNome{
+                width: 150px;
+                height: 47px;
+                font-size: 30px;
+                text-align: center;
+            }
+            
+            #estado{
+                color: white;
+                text-align: center;
+                font-size: 30px;
+            }
+            span#txtEstado{
+                color: white;
+            }
+            span#cxEstado{
+                display: none;
+            }
+            #inEstado{
+                width: 150px;
+                height: 35px;
+                font-size: 30px;
+                text-align: center;
+            }
+            
+            #monm{
+                color: white;
+                text-align: center;
+            }
+            span#txtMonm{
+                color: white;
+            }
+            span#cxMonm{
+                display: none;
+            }
+            #inMonm{
+                width: 75px;
+                height: 20px;
+                font-size: 15px;
+                text-align: center;
+            }
+            #btn{
+                margin-left: 48.6%;
+            }
+            #home{
+                margin-left: 48.6%;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="flip">
+            <div class="front">
+    <!--            <h2 id="numAtomico"></h2>-->
+                <p id="numAtomico">
+                    <span id = "txtnum" onclick="alterar('txtnum','cxnum','inpnum')"></span>
+                    <span id="cxnum">
+                        <input type="text" id="inpnum" value="">
+                        <button id="btnum" onclick="atualizar('txtnum','cxnum','inpnum')">OK</button>
+                    </span>
+                </p>
+                <p id="simbolo">
+                    <span id="txtSimbolo" onclick="alterar('txtSimbolo','cxSimbolo','inSimbolo')"></span>
+                    <span id="cxSimbolo">
+                        <input type="text" id="inSimbolo" value="">
+                        <button id="btSimbolo" onclick="atualizar('txtSimbolo','cxSimbolo','inSimbolo')">OK</button>
+                    </span>
+                </p>
+                <p id="nome">
+                    <span id="txtNome" onclick="alterar('txtNome','cxNome','inNome')"></span>
+                    <span id="cxNome">
+                        <input type="text" id="inNome" value="">
+                        <button id="btNome" onclick="atualizar('txtNome','cxNome','inNome')">OK</button>
+                    </span>
+                </p>
+                <p id="estado">
+                    <span id="txtEstado" onclick="alterar('txtEstado','cxEstado','inEstado')"></span>
+                    <span id="cxEstado">
+                        <input type="text" id="inEstado" value="">
+                        <button id="btEstado" onclick="atualizar('txtEstado','cxEstado','inEstado')">OK</button>
+                    </span>
+                </p>
+                <p id="monm">
+                    <span id="txtMonm" onclick="alterar('txtMonm','cxMonm','inMonm')"></span>
+                    <span id="cxMonm">
+                        <input type="text" id="inMonm" value="">
+                        <button id="btMonm" onclick="atualizar('txtMonm','cxMonm','inMonm')">OK</button>
+                    </span>
+                </p>
+            </div>
+            <div class="back">
+                <img id="imgback" src="table.jpg" width="250px" height="350">
+            </div>
+        </div>
+        <p id = "elemento"></p>
+        <a><img id="btn" src="verificar.png" width="40" height="40"></a><br><br>
+        <a id="home" href="menu.php"><img src="home.svg" width="40" height="40"></a>
+<!--        <button id="btn">Verificar</button>-->
+    </body>
+</html>
